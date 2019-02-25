@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  ddns-r53:
+    container_name: ddns-r53
+    image: aaronfagan/ddns-r53
+    env_file:
+      - ./config.env
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver

@@ -1,0 +1,31 @@
+version: '3.5'
+services:
+  www:
+    container_name: www-home
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./config.env
+    ports:
+      - "8080:8080"
+    volumes:
+      - ${DIR_MOUNT}/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ${DIR_MOUNT}/nginx/logs:/var/log/nginx
+      - ${DIR_MOUNT}/www:/var/www
+    restart: always
+  mysql:
+    container_name: www-home-db
+    image: mysql:5.7.25
+    command: --default-authentication-plugin=mysql_native_password
+    env_file:
+      - ./config.env
+    ports:
+      - "8081:3306"
+    volumes:
+      - ${DIR_MOUNT}/mysql:/var/lib/mysql
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver

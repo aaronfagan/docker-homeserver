@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+  nextcloud:
+    container_name: nextcloud
+    image: nextcloud
+    env_file:
+      - ./config.env
+    ports:
+      - "7080:80"
+    volumes:
+      - ${DIR_MOUNT}/www:/var/www/html
+    restart: always
+  mariadb:
+    container_name: nextcloud-db
+    image: mariadb
+    env_file:
+      - ./config.env
+    volumes:
+      - ${DIR_MOUNT}/mysql:/var/lib/mysql
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver

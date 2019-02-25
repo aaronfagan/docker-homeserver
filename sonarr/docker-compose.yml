@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr
+    env_file:
+      - ./config.env
+    environment:
+      - PGID=1000
+      - PUID=1000
+    ports:
+      - "8989:8989"
+    volumes:
+      - ${DIR_MOUNT}/config:/config
+      - ${DIR_MOUNT}/tv:/tv
+      - ${DIR_TRANSMISSION}:/data
+      - ${DIR_MEDIA}:/downloads
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver

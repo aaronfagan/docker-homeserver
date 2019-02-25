@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+  bazarr:
+    container_name: bazarr
+    image: linuxserver/bazarr
+    env_file:
+      - ./config.env
+    environment:
+      - PUID=1001
+      - PGID=1001
+    ports:
+      - 6767:6767
+    volumes:
+      - ${DIR_MOUNT}/bazarr/config:/config
+      - ${DIR_MEDIA}:/downloads
+      - ${DIR_MEDIA}/Movies:/movies
+      - ${DIR_MEDIA}/TV Shows:/tv
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver

@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+  reverse-proxy:
+    container_name: reverse-proxy
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./config.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ${DIR_MOUNT}/letsencrypt:/etc/letsencrypt
+      - ${DIR_MOUNT}/nginx/includes:/etc/nginx/includes
+      - ${DIR_MOUNT}/nginx/sites-available:/etc/nginx/sites-available
+      - ${DIR_MOUNT}/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ${DIR_MOUNT}/nginx/ssl:/etc/nginx/ssl
+      - ${DIR_MOUNT}/nginx/logs:/var/log/nginx
+    restart: always
+networks:
+  default:
+    external:
+      name: homeserver
