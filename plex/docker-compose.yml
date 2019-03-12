@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  plex:
+    container_name: plex
+    image: linuxserver/plex
+    env_file:
+      - ./config.env
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    network_mode: host
+    volumes:
+      - ${DIR_MOUNT}:/config
+      - ${DIR_MOUNT}:/media
+      - ${DIR_MOUNT}:/transcode
+    restart: always
