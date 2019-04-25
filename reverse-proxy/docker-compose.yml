@@ -12,7 +12,6 @@ services:
       - "443:443"
     volumes:
       - ${DIR_MOUNT}/letsencrypt:/etc/letsencrypt
-      - ${DIR_MOUNT}/nginx/htpasswd:/etc/nginx/htpasswd
       - ${DIR_MOUNT}/nginx/includes:/etc/nginx/includes
       - ${DIR_MOUNT}/nginx/logs:/var/log/nginx
       - ${DIR_MOUNT}/nginx/sites-available:/etc/nginx/sites-available
