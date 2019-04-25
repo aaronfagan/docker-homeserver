@@ -20,7 +20,6 @@ aws configure set default.output $AWS_OUTPUT
 
 BOOT_FILE="/opt/.first_boot_false"
 if [ ! -e $BOOT_FILE ]; then
-	mkdir -p /etc/nginx/htpasswd
 	rm -rf /etc/nginx/sites-available/*
 	rm -rf /etc/nginx/sites-enabled/*
 	cp -rfun /opt/config/nginx/* /etc/nginx
