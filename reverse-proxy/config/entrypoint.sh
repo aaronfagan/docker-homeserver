@@ -24,11 +24,13 @@ if [ ! -e $BOOT_FILE ]; then
 	rm -rf /etc/nginx/sites-available/*
 	rm -rf /etc/nginx/sites-enabled/*
 	cp -rfun /opt/config/nginx/* /etc/nginx
-	mkdir -p /etc/letsencrypt/renewal-hooks
-	cp -rfun /opt/config/letsencrypt/renewal-hooks/* /etc/letsencrypt/renewal-hooks
 	mkdir -p "$(dirname "$BOOT_FILE")"
 	touch "$BOOT_FILE"
 fi
+
+cat <<EOF >/etc/cron.d/nginx-reload
+0 0 * * * root if /usr/bin/pgrep -x "nginx" >/dev/null; then /etc/init.d/nginx reload; fi
+EOF
 
 certbot certonly \
 	--dns-route53 \
