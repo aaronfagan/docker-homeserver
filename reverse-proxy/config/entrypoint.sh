@@ -28,7 +28,7 @@ if [ ! -e $BOOT_FILE ]; then
 fi
 
 cat <<EOF >/etc/cron.d/nginx-reload
-0 0 * * * root if /usr/bin/pgrep -x "nginx" > /dev/null 2>&1; then /etc/init.d/nginx reload && echo "NGINX reloaded successfully!" > /proc/1/fd/1; fi
+0 0 * * * root if /usr/bin/pgrep -x "nginx" > /dev/null 2>&1; then /etc/init.d/nginx reload; fi
 EOF
 
 certbot certonly \
