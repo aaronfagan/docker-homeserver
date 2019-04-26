@@ -3,9 +3,9 @@ services:
   ddns-r53:
     container_name: ddns-r53
     image: aaronfagan/ddns-r53
+    privileged: true
     env_file:
       - ./config.env
-    privileged: true
     restart: always
 networks:
   default:
