@@ -6,12 +6,19 @@ services:
     env_file:
       - ./config.env
     environment:
+      - VERSION=docker
       - PUID=1000
       - PGID=1000
-      - VERSION=docker
-    network_mode: host
+    network_mode: "host"
+    ports:
+      - "32400:32400"
+      - "32400:32400/udp"
+      - "32469:32469"
+      - "32469:32469/udp"
+      - "5353:5353/udp"
+      - "1900:1900/udp"
     volumes:
       - ${DIR_MOUNT}:/config
-      - ${DIR_MOUNT}:/media
-      - ${DIR_MOUNT}:/transcode
+      - ${DIR_MEDIA}:/media
+      - ${DIR_MEDIA}/.transcode:/transcode
     restart: always
