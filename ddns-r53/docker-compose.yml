@@ -5,6 +5,7 @@ services:
     image: aaronfagan/ddns-r53
     env_file:
       - ./config.env
+    privileged: true
     restart: always
 networks:
   default:
