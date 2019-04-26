@@ -10,13 +10,6 @@ services:
       - PUID=1000
       - PGID=1000
     network_mode: host
-    ports:
-      - "32400:32400"
-      - "32400:32400/udp"
-      - "32469:32469"
-      - "32469:32469/udp"
-      - "5353:5353/udp"
-      - "1900:1900/udp"
     volumes:
       - ${DIR_MOUNT}:/config
       - ${DIR_MEDIA}:/media
