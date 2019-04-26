@@ -9,7 +9,7 @@ services:
       - VERSION=docker
       - PUID=1000
       - PGID=1000
-    network_mode: "host"
+    network_mode: host
     ports:
       - "32400:32400"
       - "32400:32400/udp"
