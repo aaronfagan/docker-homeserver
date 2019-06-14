@@ -2,7 +2,7 @@ version: '3.5'
 services:
   bazarr:
     container_name: bazarr
-    image: linuxserver/bazarr
+    image: linuxserver/bazarr:latest
     env_file:
       - ./config.env
     environment:

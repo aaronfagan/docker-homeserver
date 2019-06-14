@@ -2,7 +2,7 @@ version: '3.5'
 services:
   plex:
     container_name: plex
-    image: linuxserver/plex
+    image: linuxserver/plex:latest
     env_file:
       - ./config.env
     environment:

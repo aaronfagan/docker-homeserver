@@ -2,7 +2,7 @@ version: '3.5'
 services:
   jackett:
     container_name: jackett
-    image: linuxserver/jackett
+    image: linuxserver/jackett:latest
     env_file:
       - ./config.env
     environment:

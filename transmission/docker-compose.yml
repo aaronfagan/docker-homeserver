@@ -2,7 +2,7 @@ version: '3.5'
 services:
   transmission:
     container_name: transmission
-    image: haugene/transmission-openvpn
+    image: haugene/transmission-openvpn:latest
     privileged: true
     env_file:
       - ./config.env
