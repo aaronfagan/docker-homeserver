@@ -8,7 +8,7 @@ services:
     volumes:
       - ${DIR_MOUNT}:/data
       - /var/run/docker.sock:/var/run/docker.sock
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:

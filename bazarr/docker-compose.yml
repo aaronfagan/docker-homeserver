@@ -15,7 +15,7 @@ services:
       - ${DIR_MEDIA}:/downloads
       - ${DIR_MEDIA}/Movies:/movies
       - ${DIR_MEDIA}/TV Shows:/tv
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:

@@ -14,4 +14,4 @@ services:
       - ${DIR_MOUNT}:/config
       - ${DIR_MEDIA}:/media
       - ${DIR_MEDIA}/.transcode:/transcode
-    restart: always
+    restart: unless-stopped

@@ -9,7 +9,7 @@ services:
       - "7080:80"
     volumes:
       - ${DIR_MOUNT}/www:/var/www/html
-    restart: always
+    restart: unless-stopped
   mariadb:
     container_name: nextcloud-db
     image: mariadb
@@ -17,7 +17,7 @@ services:
       - ./config.env
     volumes:
       - ${DIR_MOUNT}/mysql:/var/lib/mysql
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:

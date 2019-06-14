@@ -13,7 +13,7 @@ services:
     volumes:
       - ${DIR_MOUNT}/config:/config
       - ${DIR_MOUNT}/downloads:/downloads
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:

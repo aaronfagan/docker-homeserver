@@ -13,7 +13,7 @@ services:
       - ${DIR_MOUNT}/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ${DIR_MOUNT}/nginx/logs:/var/log/nginx
       - ${DIR_MOUNT}/www:/var/www
-    restart: always
+    restart: unless-stopped
   mysql:
     container_name: www-home-db
     image: mysql:5.7.25
@@ -24,7 +24,7 @@ services:
       - "8081:3306"
     volumes:
       - ${DIR_MOUNT}/mysql:/var/lib/mysql
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:

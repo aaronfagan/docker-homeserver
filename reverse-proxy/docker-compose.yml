@@ -17,7 +17,7 @@ services:
       - ${DIR_MOUNT}/nginx/sites-available:/etc/nginx/sites-available
       - ${DIR_MOUNT}/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ${DIR_MOUNT}/nginx/ssl:/etc/nginx/ssl
-    restart: always
+    restart: unless-stopped
 networks:
   default:
     external:
