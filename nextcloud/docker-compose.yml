@@ -2,21 +2,17 @@ version: '3.5'
 services:
   nextcloud:
     container_name: nextcloud
-    image: nextcloud
+    image: linuxserver/nextcloud:latest
     env_file:
       - ./config.env
+    environment:
+      - PUID=1000
+      - PGID=1000
     ports:
-      - "7080:80"
+      - "7080:443"
     volumes:
-      - ${DIR_MOUNT}/www:/var/www/html
-    restart: unless-stopped
-  mariadb:
-    container_name: nextcloud-db
-    image: mariadb
-    env_file:
-      - ./config.env
-    volumes:
-      - ${DIR_MOUNT}/mysql:/var/lib/mysql
+      - ${DIR_MOUNT}/config:/config
+      - ${DIR_MOUNT}/data:/data
     restart: unless-stopped
 networks:
   default:
