@@ -6,9 +6,9 @@ services:
     env_file:
       - ./config.env
     environment:
-      - VERSION=docker
       - PUID=1000
       - PGID=1000
+      - VERSION=docker
     network_mode: host
     volumes:
       - ${DIR_MOUNT}:/config

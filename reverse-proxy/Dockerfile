@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 ENV AWS_REGION="us-west-2"
 ENV AWS_OUTPUT="json"
-ENV TZ=America/New_York
+ENV TZ=America/Edmonton
 
 RUN apt-get update && \
 	apt-get install -y \
