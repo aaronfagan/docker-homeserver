@@ -14,7 +14,7 @@ services:
     volumes:
       - ${DIR_MOUNT}:/data
       - ${DIR_MOUNT}/config:/config
-    restart: always # VPN connection loss
+    restart: unless-stopped
 networks:
   default:
     external:
