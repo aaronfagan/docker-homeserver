@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  unifi-controller:
+    container_name: unifi-controller
+    image: linuxserver/unifi-controller
+    env_file:
+      - ./config.env
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MEM_LIMIT=1024M # Optional
+    ports:
+      - "3478:3478/udp"
+      - "10001:10001/udp"
+      - "8080:8080"
+      - "8081:8081"
+      - "8443:8443"
+      - "8843:8843"
+      - "8880:8880"
+      - "6789:6789"
+    volumes:
+      - ${DIR_MOUNT}/:/config
+    restart: unless-stopped
+networks:
+  default:
+    external:
+      name: homeserver
