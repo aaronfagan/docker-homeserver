@@ -9,8 +9,6 @@ services:
     dns:
       - 8.8.8.8
       - 8.8.4.4
-    ports:
-      - "9091:9091"
     volumes:
       - ${DIR_MOUNT}:/data
       - ${DIR_MOUNT}/config:/config

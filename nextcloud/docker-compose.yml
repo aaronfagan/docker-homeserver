@@ -5,8 +5,6 @@ services:
     image: nextcloud:fpm
     env_file:
       - ./config.env
-    ports:
-      - "7080:80"
     volumes:
       - ${DIR_MOUNT}/www:/var/www/html
     restart: always

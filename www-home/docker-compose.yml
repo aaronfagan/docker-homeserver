@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     env_file:
       - ./config.env
-    ports:
-      - "8000:80"
     volumes:
       - ${DIR_MOUNT}/nginx/sites-enabled:/etc/nginx/sites-enabled
       - ${DIR_MOUNT}/nginx/logs:/var/log/nginx
@@ -21,7 +19,7 @@ services:
     env_file:
       - ./config.env
     ports:
-      - "8001:3306"
+      - "33061:3306"
     volumes:
       - ${DIR_MOUNT}/mysql:/var/lib/mysql
     restart: unless-stopped

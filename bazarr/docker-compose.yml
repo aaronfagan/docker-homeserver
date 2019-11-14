@@ -8,8 +8,6 @@ services:
     environment:
       - PUID=1001
       - PGID=1001
-    ports:
-      - 6767:6767
     volumes:
       - ${DIR_MOUNT}/bazarr/config:/config
       - ${DIR_MEDIA}:/downloads

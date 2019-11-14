@@ -3,8 +3,6 @@ services:
   portainer:
     container_name: portainer
     image: portainer/portainer:latest
-    ports:
-      - "9000:9000"
     volumes:
       - ${DIR_MOUNT}:/data
       - /var/run/docker.sock:/var/run/docker.sock
