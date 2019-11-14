@@ -18,15 +18,6 @@ aws configure set aws_secret_access_key $AWS_SECRET
 aws configure set default.region $AWS_REGION
 aws configure set default.output $AWS_OUTPUT
 
-BOOT_FILE="/opt/.first_boot_false"
-if [ ! -e $BOOT_FILE ]; then
-	rm -rf /etc/nginx/sites-available/*
-	rm -rf /etc/nginx/sites-enabled/*
-	cp -rfun /opt/config/nginx/* /etc/nginx
-	mkdir -p "$(dirname "$BOOT_FILE")"
-	touch "$BOOT_FILE"
-fi
-
 cat <<EOF >/etc/cron.d/nginx-reload
 0 6 * * * root if /usr/bin/pgrep -x "nginx" > /dev/null 2>&1; then /etc/init.d/nginx reload; fi
 EOF
@@ -41,7 +32,6 @@ certbot certonly \
 
 service cron start > /dev/null 2>&1
 
-echo "Reverse Proxy is running!"
-
-# KEEP SERVER RUNNING
 exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;"
+
+echo "Reverse Proxy is running!"
