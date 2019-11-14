@@ -31,7 +31,5 @@ certbot certonly \
 	--server https://acme-v02.api.letsencrypt.org/directory
 
 service cron start > /dev/null 2>&1
-
-exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;"
-
 echo "Reverse Proxy is running!"
+exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;"
