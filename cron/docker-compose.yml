@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  cron:
+    container_name: cron
+    privileged: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file:
+      - ./config.env
+    volumes:
+      - ${DIR_MOUNT}/scripts:/root/scripts
+      - ${DIR_MOUNT}/config:/etc/cron.d
+    restart: unless-stopped
