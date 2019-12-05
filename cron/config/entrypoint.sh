@@ -47,7 +47,7 @@ for CRON in $(echo ${CRONS} | sed -e "s/,/ /g" -e "s/  / /g"); do
 		else
 			TIME="@${CRON}"
 		fi
-		echo "${TIME} root /usr/bin/find ${DIR} -path ${DIR}/_* -prune -o -type f ! -iname "_*.sh" -iname "*.sh" -exec chmod +x {} \; -exec bash {} \; > /proc/1/fd/1" > /etc/cron.d/cron-${CRON}
+		echo "${TIME} root /usr/bin/find ${DIR} -path ${DIR}/_* -prune -o -type f ! -iname \"_*.sh\" -iname \"*.sh\" -exec chmod +x {} \; -exec bash {} \; > /proc/1/fd/1" > /etc/cron.d/cron-${CRON}
     fi
 done
 
