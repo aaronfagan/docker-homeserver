@@ -26,7 +26,7 @@ aws configure set aws_secret_access_key ${AWS_SECRET}
 aws configure set default.region ${AWS_REGION}
 aws configure set default.output json
 
-echo "0 6 * * * root if /usr/bin/pgrep -x \"nginx\" > /dev/null 2>&1; then /etc/init.d/nginx reload; fi" > /etc/cron.d/nginx-reload
+echo '0 6 * * * root if /usr/bin/pgrep -x "nginx" > /dev/null 2>&1; then /etc/init.d/nginx reload; fi' > /etc/cron.d/nginx-reload
 
 certbot certonly \
 	--dns-route53 \
