@@ -8,5 +8,6 @@ sed -i "s\;date.timezone =\date.timezone = \""${TZ}"\"\g" /etc/php/7.3/fpm/php.i
 sed -i "s\.*error_log = syslog\error_log = error_log\g" /etc/php/7.3/fpm/php.ini
 
 service php7.3-fpm start
+
 echo "WWW is running!"
 exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;"

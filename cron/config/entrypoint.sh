@@ -54,6 +54,4 @@ done
 service cron start > /dev/null 2>&1
 
 echo "[$(date +'%F %T')] Cron is running!"
-
-# KEEP CONTAINER RUNNING
 exec $(which tail) -f /dev/null
