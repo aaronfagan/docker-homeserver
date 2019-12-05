@@ -12,3 +12,7 @@ services:
       - ${DIR_MOUNT}/scripts:/root/scripts
       - ${DIR_MOUNT}/config:/etc/cron.d
     restart: unless-stopped
+networks:
+  default:
+    external:
+      name: homeserver
