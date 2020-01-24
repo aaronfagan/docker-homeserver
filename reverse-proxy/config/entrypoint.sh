@@ -38,5 +38,5 @@ certbot certonly \
 
 service cron start > /dev/null 2>&1
 
-echo "Reverse Proxy is running!"
+echo "Inbound Proxy is running!"
 exec $(which nginx) -c /etc/nginx/nginx.conf -g "daemon off;"
