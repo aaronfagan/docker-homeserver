@@ -1,7 +1,7 @@
 version: '3.5'
 services:
-  reverse-proxy:
-    container_name: reverse-proxy
+  inbound-proxy:
+    container_name: inbound-proxy
     build:
       context: ./
       dockerfile: Dockerfile
